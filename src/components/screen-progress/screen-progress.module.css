@@ -1,0 +1,6 @@
+.progressIcon {
+  width: 80px;
+  height: 70px;
+  fill: var(--primary-color);
+  margin-top: 10px;
+}

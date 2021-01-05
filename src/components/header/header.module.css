@@ -1,0 +1,36 @@
+.appHeader {
+  background-color: transparent;
+  height: 70px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 10;
+  transition: background-color 300ms ease;
+}
+
+.logoImg {
+  width: 120px;
+}
+.sticky {
+  background-color: white;
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.1);
+}
+.screenProgress {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .appHeader {
+    padding: 0 120px;
+  }
+  .screenProgress {
+    display: unset;
+  }
+}

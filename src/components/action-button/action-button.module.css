@@ -1,0 +1,13 @@
+.buttonLink {
+  text-decoration: none;
+}
+
+:global(.MuiButton-contained).actionButton {
+  background-color: var(--accent-color);
+  color: white;
+  min-width: 130px;
+}
+
+:global(.MuiButton-contained).actionButton:hover {
+  background-color: var(--accent-color-light);
+}

@@ -1,0 +1,12 @@
+.jjMap {
+  height: 400px;
+  width: 100%;
+}
+.locationIcon {
+  font-size: 30px;
+  color: var(--primary-color);
+}
+.markerLogo {
+  width: 100px;
+  height: 100px;
+}

@@ -1,0 +1,11 @@
+.drawer {
+  width: 250px;
+  height: 100%;
+  background-color: var(--black-light);
+}
+.listItemText {
+  color: var(--white);
+}
+.drawerIcon {
+  color: var(--white);
+}

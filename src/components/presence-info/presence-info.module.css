@@ -1,0 +1,69 @@
+.presenceRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: auto;
+  min-height: 280px;
+  box-sizing: border-box;
+  padding: 0 30px;
+  background-color: var(--secondary-color);
+  padding: 30px;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.titleText {
+  margin-bottom: 0;
+  margin-top: 10px;
+  max-width: 940px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.firstTitle {
+  margin-top: 20px;
+}
+
+.secondTitle {
+  margin-bottom: 20px;
+}
+
+.servicesIcons {
+  display: flex;
+  width: 50%;
+  max-width: 50%;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+
+.serviceIcon {
+  width: 60%;
+  height: 100px;
+}
+
+.footerText {
+  font-size: 20px;
+}
+.logo {
+  width: 200px;
+  height: 100px;
+}
+
+@media only screen and (min-width: 768px) {
+  .servicesIcons {
+    flex-direction: row;
+  }
+
+  .titleText {
+    font-size: 27px;
+  }
+}

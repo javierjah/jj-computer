@@ -1,0 +1,95 @@
+.contact {
+  height: auto;
+  background-color: var(--white);
+  margin-top: 70px;
+  position: relative;
+  padding-bottom: 40px;
+}
+.header {
+  background-color: var(--primary-color);
+}
+.separator {
+  height: 500px;
+}
+.contactInfoCard {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  margin-top: 40px;
+  height: auto;
+  min-height: 300px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background-color: var(--white);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+.emailform {
+  flex: 2;
+  padding: 30px;
+}
+.contactInfo {
+  flex: 1;
+  padding: 30px;
+  background-color: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+}
+.emailFormtitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.emailIcon {
+  color: var(--primary-color);
+  font-size: 30px;
+}
+.actionButton {
+  margin-top: 20px;
+  width: 100%;
+}
+.infoRow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 20px 0;
+}
+.contactIcon {
+  color: var(--primary-color);
+  padding-right: 20px;
+  font-size: 30px;
+}
+.formRow {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.inputField {
+  margin-bottom: 10px;
+}
+.contactInfoTitle {
+  margin-bottom: 45px;
+}
+
+@media only screen and (min-width: 768px) {
+  .contactInfoCard {
+    flex-direction: row;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .inputField {
+    width: 45%;
+  }
+  .descriptionField {
+    width: 100%;
+  }
+  .formRow {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .contactInfoCard {
+    flex-direction: row;
+  }
+}

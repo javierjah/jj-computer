@@ -1,0 +1,10 @@
+:root {
+  /* Base Colors */
+  --white: #fff;
+  --black: #000;
+  --black-light: #424242;
+  --primary-color: #ff9800;
+  --secondary-color: #ffe0b2;
+  --accent-color: #ff5722;
+  --accent-color-light: #fb6232;
+}
