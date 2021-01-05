@@ -25,3 +25,8 @@ code {
 .root .MuiFormLabel-root.Mui-focused {
   color: var(--primary-color);
 }
+
+a {
+  color: rgb(9 55 137);
+  text-decoration: none;
+}

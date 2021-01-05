@@ -79,6 +79,9 @@
   }
 }
 @media only screen and (min-width: 1024px) {
+  .emailform {
+    padding: 30px 60px 60px;
+  }
   .inputField {
     width: 45%;
   }

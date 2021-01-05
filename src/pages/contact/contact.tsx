@@ -7,6 +7,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 
 import ActionButton from '../../components/action-button';
 import Header from '../../components/header';
@@ -115,11 +116,11 @@ const Contact: React.FC = () => {
             </div>
             <div className={styles.infoRow}>
               <SmartphoneIcon className={styles.contactIcon} />
-              <span>+569 7847 7250</span>
+              <a href="tel:+56978477250">+569 7847 7250</a>
             </div>
             <div className={styles.infoRow}>
               <EmailIcon className={styles.contactIcon} />
-              <span>gmomel@gmail.com</span>
+              <a href="mailto: abc@example.com">gmomel@gmail.com</a>
             </div>
           </div>
         </div>
