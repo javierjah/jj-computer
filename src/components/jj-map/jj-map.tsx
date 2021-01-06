@@ -6,16 +6,18 @@ import logo from '../../assets/jj-only-logo.png';
 import styles from './jj-map.module.css';
 
 type MarkerProps = { lat: number; lng: number; children?: JSX.Element };
+const lat = -33.685144;
+const lng = -71.206134;
 
 const Footer: React.FC = () => {
   const GOOGLE_MAP_API_KEY: string = process.env.REACT_APP_GOOGLE_MAP_API_KEY || '';
 
   const mapConfig = {
     center: {
-      lat: -33.684719,
-      lng: -71.196295,
+      lat,
+      lng,
     },
-    zoom: 16,
+    zoom: 18,
   };
   const Marker: React.FC<MarkerProps> = ({ children }) =>
     children || <LocationOnIcon className={styles.locationIcon} />;
@@ -27,9 +29,10 @@ const Footer: React.FC = () => {
         defaultCenter={mapConfig.center}
         defaultZoom={mapConfig.zoom}
       >
-        <Marker lat={-33.684719} lng={-71.196295}>
+        {/* <Marker lat={lat} lng={lng}>
           <img src={logo} alt="jj logo" className={styles.markerLogo} />
-        </Marker>
+        </Marker> */}
+        <Marker lat={lat} lng={lng} />
       </GoogleMapReact>
     </div>
   );
