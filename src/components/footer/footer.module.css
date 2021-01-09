@@ -34,7 +34,6 @@
 }
 .text {
   padding: 3px;
-  color: rgb(9 55 137);
 }
 @media screen and (min-width: 768px) {
   .containerFooter {

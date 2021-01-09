@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 
 import styles from './action-button.module.css';
 
-const NOOP = () => null;
 type Props = {
   text?: string;
   className?: string;

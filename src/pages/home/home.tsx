@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 
 import { ReactComponent as Laptop } from '../../assets/online_protection.svg';
 import { ReactComponent as Printer } from '../../assets/printer.svg';
@@ -12,6 +12,10 @@ import styles from './home.module.css';
 const Home: React.FC = () => {
   const laptopInfoText = 'Reparaciones, reemplazos de repuestos y venta notebooks nuevos y usados.';
   const printerText = 'Impresoras sistema continuo, Multifuncionales, Impresoras toner y portatiles.';
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Fragment>

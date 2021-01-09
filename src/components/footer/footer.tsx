@@ -17,30 +17,24 @@ const Footer: React.FC = () => {
           <div className={styles.icon}>
             <ArrowForwardIosIcon />
           </div>
-          <a href="../../pages/services" className={styles.text}>
-            Lorem ipsum dolor sit amet
-          </a>
+          <div className={styles.text}>Impresoras</div>
         </div>
         <div className={styles.containerText}>
           <div className={styles.icon}>
             <ArrowForwardIosIcon />
           </div>
-          <a href="../../pages/services" className={styles.text}>
-            Lorem ipsum dolor sit amet
-          </a>
+          <div className={styles.text}>Computadores</div>
         </div>
         <div className={styles.containerText}>
           <div className={styles.icon}>
             <ArrowForwardIosIcon />
           </div>
-          <a href="../../pages/services" className={styles.text}>
-            Lorem ipsum dolor sit amet
-          </a>
+          <div className={styles.text}>Nooteboks</div>
         </div>
       </div>
       <div className={styles.data}>
         <h3 className={styles.title}>Contacta con nosotros</h3>
-        <p className={styles.addresse}>Contramaestre Micalvi #522, of.42, Ñuñoa</p>
+        <p className={styles.addresse}>Av. Pablo Neruda #035. Villa España, Melipilla.</p>
         <div className={styles.containerText}>
           <div className={styles.icon}>
             <ArrowForwardIosIcon />

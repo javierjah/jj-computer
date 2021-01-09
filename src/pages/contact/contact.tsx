@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import EmailIcon from '@material-ui/icons/Email';
 import TextField from '@material-ui/core/TextField';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
@@ -7,46 +7,82 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import cn from 'classnames';
-import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 import ActionButton from '../../components/action-button';
 import Header from '../../components/header';
 import JJMap from '../../components/jj-map';
 import styles from './contact.module.css';
 
-const Contact: React.FC = () => {
-  const [service, seService] = useState('');
+const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+type Inputs = {
+  name: string;
+  email: string;
+  phone: string;
+  services: string;
+  description: string;
+  service?: string;
+};
 
-  function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
-    console.log('123123', 123123);
-    e.preventDefault();
+const Contact: React.FC = () => {
+  const { register, handleSubmit, errors, setValue } = useForm<Inputs>();
+  const [service, setService] = useState('');
+  const emailContactProdUrl = process.env.REACT_APP_EMAIL_SENDER_URL_PROD_URL || '';
+  const emailContactUrl =
+    process.env.NODE_ENV === 'production' ? emailContactProdUrl : 'http://localhost:3002/api/v1/email/contact';
+
+  async function handleFormSubmit(data: Inputs) {
+    const contactForm = {
+      userName: data.name,
+      companyName: 'JJ Computación',
+      email: data.email,
+      companyEmail: 'javier.palacios.h@gmail.com',
+      phoneNumber: `+569 ${data.phone}`,
+      description: data.description,
+      template: 'serviceContactEmail',
+      subject: 'Servicio Técnico',
+      service: data.service,
+    };
+    try {
+      await axios.post(emailContactUrl, contactForm);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  const handleServiceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    seService(event.target.value);
+  const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.target.value = event.target.value.toString().slice(0, 8);
   };
-  const services: Array<{ id: number; value: string; label: string }> = [
+
+  const services: Array<{ value: string; label: string }> = [
     {
-      id: 0,
       value: 'Otro',
       label: 'Otro',
     },
     {
-      id: 1,
       value: 'Computadores',
       label: 'Computadores',
     },
     {
-      id: 2,
       value: 'Notebooks',
       label: 'Notebooks',
     },
     {
-      id: 3,
       value: 'Impresoras',
       label: 'Impresoras',
     },
   ];
+
+  function handleSelectChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setValue('service', event.target.value);
+    setService(event.target.value);
+  }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    register('service');
+  }, [register]);
 
   return (
     <Fragment>
@@ -54,37 +90,74 @@ const Contact: React.FC = () => {
       <div className={styles.contact}>
         <JJMap />
         <div className={styles.contactInfoCard}>
-          <form className={styles.emailform} noValidate autoComplete="off" onSubmit={handleFormSubmit}>
+          <form className={styles.emailform} noValidate autoComplete="off" onSubmit={handleSubmit(handleFormSubmit)}>
             <div className={styles.emailFormtitle}>
               <h2>Escríbenos</h2>
               <MailOutlineIcon className={styles.emailIcon} />
             </div>
             <div className={styles.formRow}>
-              <TextField className={styles.inputField} required id="name" label="Tu Nombre" />
-              <TextField className={styles.inputField} required id="email" label="Email" type="email" />
+              <TextField
+                required
+                id="name"
+                name="name"
+                label="Tu Nombre"
+                className={styles.inputField}
+                helperText={errors.name?.message}
+                error={Boolean(errors.name?.message)}
+                inputRef={register({ required: 'El nombre es requerido' })}
+              />
+              <TextField
+                required
+                id="email"
+                type="email"
+                name="email"
+                label="Email"
+                className={styles.inputField}
+                helperText={errors.email?.message}
+                error={Boolean(errors.email?.message)}
+                inputRef={register({
+                  required: 'El email es requerido',
+                  pattern: {
+                    value: emailPattern,
+                    message: 'Ingresa un email valido',
+                  },
+                })}
+              />
             </div>
             <div className={styles.formRow}>
               <TextField
-                id="phone"
                 required
+                id="phone"
+                name="phone"
                 type="number"
-                className={styles.inputField}
+                inputRef={register({
+                  required: 'El telefono también es requerido',
+                  minLength: {
+                    value: 8,
+                    message: 'Mínimo 8 números',
+                  },
+                  maxLength: {
+                    value: 8,
+                    message: 'Máximo 8 números',
+                  },
+                })}
                 label="Telefono"
-                helperText="+569 XXXX XXXX"
-                onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  e.target.value = e.target.value.toString().slice(0, 8);
-                }}
+                error={Boolean(errors.phone?.message)}
+                onInput={handlePhoneChange}
+                className={styles.inputField}
+                helperText={errors.phone?.message || '+569 XXXX XXXX'}
                 InputProps={{
                   startAdornment: <InputAdornment position="start">+569 </InputAdornment>,
                 }}
               />
               <TextField
-                id="services-select"
                 select
-                className={styles.inputField}
-                label="Servicio"
+                id="service"
+                name="service"
+                label="Servicio (opcional)"
                 value={service}
-                onChange={handleServiceChange}
+                onChange={handleSelectChange}
+                className={styles.inputField}
                 helperText="Selecciona el tipo de servicio que buscas"
               >
                 {services.map(option => (
@@ -96,12 +169,17 @@ const Contact: React.FC = () => {
             </div>
             <div className={styles.formRow}>
               <TextField
-                id="description"
-                className={cn(styles.inputField, styles.descriptionField)}
-                label="Descripción"
                 multiline
                 rowsMax={4}
-                helperText="Describenos que problemas presenta tu dispotivo"
+                id="description"
+                name="description"
+                label="Descripción"
+                error={Boolean(errors.description?.message)}
+                className={cn(styles.inputField, styles.descriptionField)}
+                helperText={errors.description?.message || 'Describenos que problemas presenta tu dispotivo'}
+                inputRef={register({
+                  required: 'La descripciónes requerida, por favor cuentanos un poco del problema',
+                })}
                 // value={value}
                 // onChange={handleChange}
               />
@@ -120,7 +198,7 @@ const Contact: React.FC = () => {
             </div>
             <div className={styles.infoRow}>
               <EmailIcon className={styles.contactIcon} />
-              <a href="mailto: abc@example.com">gmomel@gmail.com</a>
+              <a href="mailto: gmomel@gmail.com">gmomel@gmail.com</a>
             </div>
           </div>
         </div>
