@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
           <div className={styles.icon}>
             <ArrowForwardIosIcon />
           </div>
-          <a href="tel:5551234567" className={styles.text}>
+          <a href="tel:+56978477250" className={styles.text}>
             Teléfono : +569 7847 7250
           </a>
         </div>
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
           <div className={styles.icon}>
             <ArrowForwardIosIcon />
           </div>
-          <a href="mailto: abc@example.com" className={styles.text}>
+          <a href="mailto: gmomel@gmail.com" className={styles.text}>
             E-mail : gmomel@gmail.com
           </a>
         </div>
