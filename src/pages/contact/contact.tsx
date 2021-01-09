@@ -6,6 +6,9 @@ import SmartphoneIcon from '@material-ui/icons/Smartphone';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import Snackbar from '@material-ui/core/Snackbar';
+import Slide from '@material-ui/core/Slide';
+import { TransitionProps } from '@material-ui/core/transitions';
 import cn from 'classnames';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
@@ -26,28 +29,43 @@ type Inputs = {
 };
 
 const Contact: React.FC = () => {
-  const { register, handleSubmit, errors, setValue } = useForm<Inputs>();
+  const { register, handleSubmit, errors, setValue, reset } = useForm<Inputs>();
   const [service, setService] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+
   const emailContactProdUrl = process.env.REACT_APP_EMAIL_SENDER_URL_PROD_URL || '';
   const emailContactUrl =
     process.env.NODE_ENV === 'production' ? emailContactProdUrl : 'http://localhost:3002/api/v1/email/contact';
 
   async function handleFormSubmit(data: Inputs) {
-    const contactForm = {
-      userName: data.name,
-      companyName: 'JJ Computación',
-      email: data.email,
-      companyEmail: 'javier.palacios.h@gmail.com',
-      phoneNumber: `+569 ${data.phone}`,
-      description: data.description,
-      template: 'serviceContactEmail',
-      subject: 'Servicio Técnico',
-      service: data.service,
-    };
     try {
+      setLoading(true);
+
+      const contactForm = {
+        userName: data.name,
+        companyName: 'JJ Computación',
+        email: data.email,
+        companyEmail: 'javier.palacios.h@gmail.com',
+        phoneNumber: `+569 ${data.phone}`,
+        description: data.description,
+        template: 'serviceContactEmail',
+        subject: 'Servicio Técnico',
+        service: data.service,
+      };
+
       await axios.post(emailContactUrl, contactForm);
+      reset();
+      setValue('service', '');
+      setService('');
+      setOpen(true);
     } catch (error) {
+      reset();
+      setValue('service', '');
+      setService('');
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -79,8 +97,19 @@ const Contact: React.FC = () => {
     setService(event.target.value);
   }
 
+  const handleClose = (event: React.SyntheticEvent | React.MouseEvent, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     register('service');
   }, [register]);
 
@@ -180,11 +209,15 @@ const Contact: React.FC = () => {
                 inputRef={register({
                   required: 'La descripciónes requerida, por favor cuentanos un poco del problema',
                 })}
-                // value={value}
-                // onChange={handleChange}
               />
             </div>
-            <ActionButton type="submit" text="Enviar" className={styles.actionButton} />
+            <ActionButton
+              type="submit"
+              text="Enviar"
+              className={styles.actionButton}
+              disabled={loading}
+              loading={loading}
+            />
           </form>
           <div className={styles.contactInfo}>
             <h2 className={styles.contactInfoTitle}>Contáctanos</h2>
@@ -201,6 +234,17 @@ const Contact: React.FC = () => {
               <a href="mailto: gmomel@gmail.com">gmomel@gmail.com</a>
             </div>
           </div>
+          <Snackbar
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'right',
+            }}
+            open={open}
+            autoHideDuration={3000}
+            onClose={handleClose}
+            message="El email ha sido enviado con éxito"
+            TransitionComponent={(props: TransitionProps) => <Slide {...props} direction="up" />}
+          />
         </div>
       </div>
     </Fragment>
