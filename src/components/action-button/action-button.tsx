@@ -17,6 +17,8 @@ type Props = {
   onClick?: (args: any) => void;
   disabled?: boolean;
   loading?: boolean;
+  linkClassName?: string;
+  classNameContrainer?: string;
 };
 
 const ActionButton: React.FC<Props> = ({
@@ -27,6 +29,8 @@ const ActionButton: React.FC<Props> = ({
   onClick = null,
   disabled = false,
   loading = false,
+  linkClassName = '',
+  classNameContrainer = '',
 }) => {
   const linkButton = onClick ? (
     <Button
@@ -40,7 +44,7 @@ const ActionButton: React.FC<Props> = ({
       {text}
     </Button>
   ) : (
-    <Link to={to} className={styles.buttonLink}>
+    <Link to={to} className={cn(styles.buttonLink, linkClassName)}>
       <Button type={type} variant="contained" className={cn(styles.actionButton, className)} disabled={disabled}>
         {text}
       </Button>
@@ -50,7 +54,7 @@ const ActionButton: React.FC<Props> = ({
     <motion.div
       whileHover={{ scale: disabled ? 1 : 1.1 }}
       whileTap={{ scale: disabled ? 1 : 0.9 }}
-      className={styles.actionButtonContainer}
+      className={cn(styles.actionButtonContainer, classNameContrainer)}
     >
       {type === 'submit' ? (
         <Button type={type} variant="contained" className={cn(styles.actionButton, className)} disabled={disabled}>

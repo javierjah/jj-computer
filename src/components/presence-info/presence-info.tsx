@@ -10,15 +10,17 @@ const PresenceInfo: React.FC = () => {
     <div className={styles.presenceRow}>
       <img src={logo} alt="jj logo white" className={styles.logo} />
       <div className={styles.infoBox}>
-        <h2 className={cn(styles.titleText, styles.firstTitle)}>
-          Más de 500 clientes en todo Melipilla que confian en nosotros.
-        </h2>
-        <h2 className={cn(styles.titleText, styles.secondTitle)}>
-          Servicio técnico certificado hace mas de 15 años en Melipilla.
-        </h2>
-        <ActionButton />
+        <h1 className={cn(styles.titleText)}>Servicio técnico certificado hace mas de 30 años en Melipilla.</h1>
+        <h3 className={cn(styles.titleText, styles.secondTitle)}>
+          Venta de computadores e impresoras de tinta y láser, nuevos y usados con garantía.
+        </h3>
+        <h3 className={cn(styles.titleText)}>Especialistas en suministros de computación.</h3>
+        <h3 className={cn(styles.titleText, styles.lastTitle)}>
+          Toner para impresoras, memorias, discos duros normales y sólidos, baterías, teclados, kit de limpieza,
+          cargadores, y muchos más.
+        </h3>
+        <ActionButton className={styles.actionButton} />
       </div>
-      <p className={styles.footerText}>Especialista en Computadores, Notebooks e Impresoras</p>
     </div>
   );
 };

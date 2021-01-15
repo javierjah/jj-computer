@@ -115,7 +115,7 @@ const Contact: React.FC = () => {
 
   return (
     <Fragment>
-      <Header className={styles.header} logoWhite showProgress={false} />
+      <Header className={styles.header} />
       <div className={styles.contact}>
         <JJMap />
         <div className={styles.contactInfoCard}>

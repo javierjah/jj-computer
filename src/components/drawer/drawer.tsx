@@ -12,7 +12,11 @@ import { useHistory } from 'react-router-dom';
 
 import styles from './drawer.module.css';
 
-const DrawerComponent: React.FC = () => {
+type Props = {
+  className?: string;
+};
+
+const DrawerComponent: React.FC<Props> = ({ className = '' }) => {
   const history = useHistory();
   const [drawer, setDrawer] = useState(false);
 
@@ -26,7 +30,12 @@ const DrawerComponent: React.FC = () => {
 
   return (
     <Fragment>
-      <Button data-qa="drawer-toggle-button" onClick={() => toggleDrawer(true)}>
+      <Button
+        data-qa="drawer-toggle-button"
+        onClick={() => toggleDrawer(true)}
+        variant="outlined"
+        className={className}
+      >
         <MenuIcon />
       </Button>
       <Drawer anchor="right" open={drawer} onClose={() => toggleDrawer(false)}>

@@ -1,6 +1,36 @@
 .home {
-  /* margin-top: 70px; */
+  margin-top: 40px;
 }
 .middleServiceInfo {
   background-color: var(--secondary-color);
+}
+.servicesTitle {
+  padding-top: 50px;
+  background: var(--secondary-color);
+  margin: 0;
+  background-image: url('../../assets/bg.png');
+  background-position: 0 0;
+  background-size: 50%;
+  font-size: 40px;
+}
+.servicesContainer {
+  text-align: center;
+  background-image: url('../../assets/bg.png');
+  background-position: 0 0;
+  background-size: 50%;
+  background-color: var(--secondary-color);
+  padding-bottom: 40px;
+}
+.printIcon {
+  height: 300px;
+  stroke: var(--black);
+}
+
+@media only screen and (min-width: 768px) {
+  .printIcon {
+    height: 500px;
+  }
+  .servicesTitle {
+    font-size: 40px;
+  }
 }

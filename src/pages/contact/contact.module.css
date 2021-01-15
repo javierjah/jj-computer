@@ -5,9 +5,7 @@
   position: relative;
   padding-bottom: 40px;
 }
-.header {
-  background-color: var(--primary-color);
-}
+
 .separator {
   height: 500px;
 }

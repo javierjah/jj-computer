@@ -6,6 +6,7 @@ import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
 import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 
 import styles from './how-it-works.module.css';
+import ActionButton from '../action-button';
 
 type Props = {
   className?: string;
@@ -21,19 +22,21 @@ const HowItWorks: React.FC<Props> = ({ className = '' }) => {
   const title = '¿Cómo funciona?';
   const howItWorksData: HowItWorksData = [
     {
-      title: '1. Recibir',
-      text: 'Deja tu dispositivo en nuestra dirección para comenzar un diagnóstico.',
+      title: '1. Diagnóstico',
+      text:
+        'Deja tu dispositivo en nuestra dirección para comenzar un diagnóstico. Serás avisado en un maximo de 2 días hábiles.',
       icon: EmojiTransportationIcon,
     },
     {
-      title: '2. Diagnóstico',
+      title: '2. Reparación',
       text:
-        'Se hace un diagnóstico para verificar tiempo y que servicio. Seras avisado en un maximo de 2 días hábiles.',
+        'Si accedes a la reparación luego del diagnóstico tu dispositivo será reparado en un máximo de 5 días hábiles dependiendo del problema.',
       icon: BuildIcon,
     },
     {
-      title: '3. Entrega',
-      text: 'Seras avisado de que tu dispositivo se encuentra disponible para retirarlo.',
+      title: '3. Entrega y Mantención',
+      text:
+        'Serás avisado de que tu dispositivo se encuentra disponible para retirarlo. El servicio continúa con una mantención para que tu dispositivo nunca esté defectuoso',
       icon: ContactPhoneIcon,
     },
   ];
@@ -62,6 +65,7 @@ const HowItWorks: React.FC<Props> = ({ className = '' }) => {
             );
           })}
         </div>
+        <ActionButton />
       </div>
       {/* Small View */}
 

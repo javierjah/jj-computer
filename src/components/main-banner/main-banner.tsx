@@ -8,9 +8,13 @@ const PresenceInfo: React.FC = () => {
   return (
     <div className={styles.mainBannerRow}>
       <div className={styles.infoBox}>
-        <h1 className={styles.title}>Servicio Técnico de Computación e Impresoras</h1>
+        <div className={styles.textInfoContainer}>
+          <h1 className={styles.title}>Servicio Técnico de Computación</h1>
+          <h2 className={styles.subTitle}>
+            Diagnóstico, Mantención y Reparación de Computadores, Notebooks e Impresoras.
+          </h2>
+        </div>
         <div>
-          <h2 className={styles.subTitle}>Especialista en Computadores, Notebooks e Impresoras</h2>
           <ActionButton className={styles.actionButton} />
         </div>
       </div>

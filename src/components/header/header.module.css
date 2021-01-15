@@ -14,10 +14,12 @@
   box-sizing: border-box;
   z-index: 10;
   transition: background-color 300ms ease;
+  background-color: white;
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.1);
 }
 
 .logoImg {
-  width: 120px;
+  width: 60px;
 }
 .sticky {
   background-color: white;
@@ -26,11 +28,69 @@
 .screenProgress {
   display: none;
 }
+.navButton {
+  display: none;
+  font-size: 20px;
+  padding-bottom: 3px;
+  transition: transform 300ms ease;
+}
+.navButton a {
+  color: var(--black);
+}
+.navButtonActive {
+  padding: 8px;
+  border: 1px solid var(--primary-color);
+}
+.navButton:hover {
+  transform: scale(1.2);
+  font-weight: 600;
+}
+.navButtons {
+  display: flex;
+  align-items: center;
+}
+.navButtonsContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.actionButtonLarge {
+  display: none;
+  position: absolute;
+}
+
 @media only screen and (min-width: 768px) {
+  .actionButtonSmall {
+    display: none;
+  }
+  .logoImg {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+  .actionButtonLarge {
+    display: unset;
+    right: 50px;
+  }
+  .navButtonsContainer {
+    justify-content: center;
+  }
+  .drawerButton {
+    display: none;
+  }
+  .navButton {
+    display: unset;
+  }
   .appHeader {
-    padding: 0 120px;
+    padding: 0 100px;
   }
   .screenProgress {
     display: unset;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .actionButtonLarge {
+    right: 100px;
   }
 }

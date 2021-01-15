@@ -27,6 +27,6 @@ code {
 }
 
 a {
-  color: #0092c2;
+  color: var(--link-color);
   text-decoration: none;
 }

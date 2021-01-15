@@ -1,67 +1,111 @@
-import React, { useLayoutEffect, useState } from 'react';
+/* eslint-disable react/no-unused-prop-types */
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 
 import Drawer from '../drawer';
 import ActionButton from '../action-button';
-import ScreenProgress from '../screen-progress';
-import logo from '../../assets/jj-logo.png';
-import logoWhiteColor from '../../assets/jj-logo-white.png';
+import logo from '../../assets/jj-only-logo.png';
 import styles from './header.module.css';
 
 type Props = {
   className?: string;
-  logoWhite?: boolean;
-  showProgress?: boolean;
 };
 
-const Header: React.FC<Props> = ({ className = '', logoWhite = false, showProgress = true }) => {
-  const [startScrolling, setStartScrolling] = useState(false);
-  const [logoImg, setLogoImg] = useState(logoWhiteColor);
+type HeaderData = {
+  id: number;
+  path: string;
+  active: boolean;
+  name: string;
+};
 
-  useLayoutEffect(() => {
-    if (logoWhite) {
-      return () => {
-        window.onscroll = null;
-      };
-    }
+const defaultHeaderData: HeaderData[] = [
+  {
+    id: 0,
+    path: '/home',
+    active: false,
+    name: 'Inicio',
+  },
+  {
+    id: 1,
+    path: '/contacto',
+    active: false,
+    name: 'Contacto',
+  },
+];
 
-    window.onscroll = function () {
-      if (window.pageYOffset === 0) {
-        setStartScrolling(false);
-        setLogoImg(logoWhiteColor);
-      } else {
-        setStartScrolling(true);
-        setLogoImg(logo);
-      }
-    };
+const Header: React.FC<Props> = ({ className = '' }) => {
+  const location = useLocation();
+  const { pathname: currentPathname } = location;
+  const [headerData, setHeaderData] = useState<HeaderData[]>(defaultHeaderData);
 
-    return () => {
-      window.onscroll = null;
-    };
-  }, [logoWhite]);
+  useEffect(() => {
+    const newHeaderData = headerData.map(item => ({
+      ...item,
+      active: item.path === currentPathname,
+    }));
+    setHeaderData(newHeaderData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPathname]);
+
+  // const [startScrolling, setStartScrolling] = useState(false);
+  // const [logoImg, setLogoImg] = useState('');
+
+  // useLayoutEffect(() => {
+  //   if (logoWhite) {
+  //     return () => {
+  //       window.onscroll = null;
+  //     };
+  //   }
+
+  //   window.onscroll = function () {
+  //     if (window.pageYOffset === 0) {
+  //       setStartScrolling(false);
+  //       setLogoImg(logoWhiteColor);
+  //     } else {
+  //       setStartScrolling(true);
+  //       setLogoImg(logo);
+  //     }
+  //   };
+
+  //   return () => {
+  //     window.onscroll = null;
+  //   };
+  // }, [logoWhite]);
 
   return (
-    <header
-      className={cn(styles.appHeader, className, {
-        [styles.sticky]: startScrolling,
-      })}
-    >
-      <Link to="/home">
-        <img src={logoImg} alt="jj logo" className={styles.logoImg} />
-      </Link>
-      {showProgress && <ScreenProgress className={styles.screenProgress} />}
-      <ActionButton />
-      <Drawer />
+    <header className={cn(styles.appHeader, className)}>
+      <div className={styles.navButtonsContainer}>
+        <div className={styles.navButtons}>
+          <div
+            className={cn(styles.navButton, {
+              [styles.navButtonActive]: headerData[0].active,
+            })}
+          >
+            <Link to="/home">Inicio</Link>
+          </div>
+          <Link to="/home" className={styles.logoImcContainer}>
+            <img src={logo} alt="jj logo" className={styles.logoImg} />
+          </Link>
+          <div
+            className={cn(styles.navButton, {
+              [styles.navButtonActive]: headerData[1].active,
+            })}
+          >
+            <Link to="/contacto">Contacto</Link>
+          </div>
+        </div>
+        <ActionButton className={styles.actionButtonSmall} />
+        <Drawer className={styles.drawerButton} />
+      </div>
+      <ActionButton classNameContrainer={styles.actionButtonLarge} />
     </header>
   );
 };
 
 Header.propTypes = {
   className: PropTypes.string,
-  logoWhite: PropTypes.bool,
-  showProgress: PropTypes.bool,
 };
 
 export default Header;

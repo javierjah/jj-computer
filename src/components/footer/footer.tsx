@@ -51,6 +51,14 @@ const Footer: React.FC = () => {
             E-mail : gmomel@gmail.com
           </a>
         </div>
+        <div className={styles.containerText}>
+          <div className={styles.icon}>
+            <ArrowForwardIosIcon />
+          </div>
+          <a href="https://storyset.com/work" target="_blank" rel="noreferrer">
+            Illustraciones por Freepik Storyset
+          </a>
+        </div>
       </div>
     </div>
   );
