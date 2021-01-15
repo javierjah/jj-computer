@@ -96,7 +96,7 @@ const Header: React.FC<Props> = ({ className = '' }) => {
             <Link to="/contacto">Contacto</Link>
           </div>
         </div>
-        <ActionButton className={styles.actionButtonSmall} />
+        <ActionButton classNameContrainer={styles.actionButtonSmall} />
         <Drawer className={styles.drawerButton} />
       </div>
       <ActionButton classNameContrainer={styles.actionButtonLarge} />

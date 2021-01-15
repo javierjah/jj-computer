@@ -63,8 +63,14 @@
   display: flex;
 }
 
+.actionButtonSmall {
+  display: flex;
+}
 @media only screen and (min-width: 768px) {
   .actionButtonSmall {
+    display: none;
+  }
+  .drawerButton {
     display: none;
   }
   .logoImg {
@@ -77,9 +83,6 @@
   }
   .navButtonsContainer {
     justify-content: center;
-  }
-  .drawerButton {
-    display: none;
   }
   .navButton {
     display: unset;

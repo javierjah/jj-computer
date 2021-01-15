@@ -63,7 +63,6 @@ const Contact: React.FC = () => {
       reset();
       setValue('service', '');
       setService('');
-      console.log(error);
     } finally {
       setLoading(false);
     }
