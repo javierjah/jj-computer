@@ -59,19 +59,18 @@
   display: none;
   position: absolute;
 }
-.drawerButton {
-  display: flex;
-}
-
 .actionButtonSmall {
   display: flex;
+}
+.drawerButton {
+  display: flex !important;
 }
 @media only screen and (min-width: 768px) {
   .actionButtonSmall {
     display: none;
   }
   .drawerButton {
-    display: none;
+    display: none !important;
   }
   .logoImg {
     margin-right: 50px;
