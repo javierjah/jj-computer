@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
   return (
     <div className={styles.containerFooter}>
       <div className={styles.containerLogo}>
-        <img src={logo} alt="jj logo" className={styles.logo} />
+        <img src={logo} alt="BJ logo" className={styles.logo} />
       </div>
       <div className={cn(styles.data, styles.containerServices)}>
         <h3 className={styles.title}>Servicios</h3>

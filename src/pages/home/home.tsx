@@ -1,8 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 
-// import { ReactComponent as Laptop } from '../../assets/online_protection.svg';
 import { ReactComponent as Laptop } from '../../assets/note-working.svg';
-// import { ReactComponent as Printer } from '../../assets/printer.svg';
 import { ReactComponent as Printer } from '../../assets/printer2.svg';
 import PrescenseInfo from '../../components/presence-info';
 import SerciceInfo from '../../components/service-info';

@@ -44,9 +44,9 @@ const Contact: React.FC = () => {
 
       const contactForm = {
         userName: data.name,
-        companyName: 'JJ Computación',
+        companyName: 'BJ Computación',
         email: data.email,
-        companyEmail: 'javier.palacios.h@gmail.com',
+        companyEmail: 'gmomel@gmail.com',
         phoneNumber: `+569 ${data.phone}`,
         description: data.description,
         template: 'serviceContactEmail',

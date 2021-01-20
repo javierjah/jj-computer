@@ -12,15 +12,15 @@
   margin-left: -12;
   color: var(--accent-color);
 }
-:global(.MuiButton-contained).actionButton:not(disabled):not(error):not(focused) {
+.actionButtonContainer :global(.MuiButton-contained).actionButton:not(disabled):not(error):not(focused) {
   background-color: var(--accent-color);
   color: white;
   min-width: 130px;
 }
-:global(.MuiButton-contained).actionButton:hover:not(disabled):not(error):not(focused) {
+.actionButtonContainer :global(.MuiButton-contained).actionButton:hover:not(disabled):not(error):not(focused) {
   background-color: var(--accent-color-light);
 }
-:global(.MuiButton-contained).actionButton:disabled {
+.actionButtonContainer :global(.MuiButton-contained).actionButton:disabled {
   background-color: var(--disabled-background);
   color: var(--disabled-text);
   min-width: 130px;

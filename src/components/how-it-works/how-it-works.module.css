@@ -22,7 +22,7 @@
   justify-content: center;
   text-align: left;
 }
-.serviceIcon {
+.howColumn .serviceIcon {
   width: 70px;
   height: 70px;
   color: var(--primary-color);

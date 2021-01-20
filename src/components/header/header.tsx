@@ -86,7 +86,7 @@ const Header: React.FC<Props> = ({ className = '' }) => {
             <Link to="/home">Inicio</Link>
           </div>
           <Link to="/home" className={styles.logoImcContainer}>
-            <img src={logo} alt="jj logo" className={styles.logoImg} />
+            <img src={logo} alt="Bj logo" className={styles.logoImg} />
           </Link>
           <div
             className={cn(styles.navButton, {

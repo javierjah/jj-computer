@@ -8,7 +8,7 @@ import styles from './presence-info.module.css';
 const PresenceInfo: React.FC = () => {
   return (
     <div className={styles.presenceRow}>
-      <img src={logo} alt="jj logo white" className={styles.logo} />
+      <img src={logo} alt="BJ logo white" className={styles.logo} />
       <div className={styles.infoBox}>
         <h1 className={cn(styles.titleText)}>Servicio técnico certificado hace mas de 30 años en Melipilla.</h1>
         <h3 className={cn(styles.titleText, styles.secondTitle)}>
