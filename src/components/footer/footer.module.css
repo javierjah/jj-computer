@@ -30,14 +30,19 @@
   padding-bottom: 10px;
 }
 .icon :global(.MuiSvgIcon-root) {
-  font-size: 12px;
+  /* font-size: 12px; */
+  margin-right: 5px;
 }
 .containerText {
   align-items: center;
   display: flex;
+  margin-bottom: 4px;
 }
 .text {
-  padding: 3px;
+  padding: 5px;
+}
+.icon .arrowIcon {
+  font-size: 12px;
 }
 @media screen and (min-width: 768px) {
   .containerFooter {

@@ -1,9 +1,9 @@
-.locationIcon {
-  font-size: 50px;
-  color: var(--primary-color);
-}
 .markerContainer {
   position: absolute;
   top: -20px;
   left: -20px;
+}
+.markerContainer .locationIcon {
+  font-size: 50px;
+  color: var(--primary-color);
 }
