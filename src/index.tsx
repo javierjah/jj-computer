@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import HttpsRedirect from './utils/https-redirect';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'dotenv/config';
 
@@ -9,7 +10,9 @@ import App from './pages/app';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <HttpsRedirect>
+      <App />
+    </HttpsRedirect>
   </React.StrictMode>,
   document.getElementById('root'),
 );

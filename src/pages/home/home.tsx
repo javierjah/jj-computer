@@ -15,6 +15,7 @@ const Home: React.FC = () => {
     'Reparaciones, reemplazos de repuestos y venta notebooks nuevos y usados. Configuración de impresoras y dispositivos de hardware y otros periféricos';
   const printerText =
     'Venta de impresoras de tinta y láser, sistema continuo, multifuncionales y portátiles. Asistencia a los usuarios cuando se presentan problemas de software y hardware.';
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

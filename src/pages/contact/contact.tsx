@@ -204,7 +204,7 @@ const Contact: React.FC = () => {
                 label="Descripción"
                 error={Boolean(errors.description?.message)}
                 className={cn(styles.inputField, styles.descriptionField)}
-                helperText={errors.description?.message || 'Describenos que problemas presenta tu dispotivo'}
+                helperText={errors.description?.message || 'Descríbenos que problemas presenta tu dispotivo'}
                 inputRef={register({
                   required: 'La descripciónes requerida, por favor cuentanos un poco del problema',
                 })}
