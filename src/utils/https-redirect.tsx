@@ -13,7 +13,8 @@ const HttpsRedirect = ({ disabled = false, children }: { disabled?: boolean; chi
     typeof window !== 'undefined' &&
     window.location &&
     window.location.protocol === 'http:' &&
-    !isLocalHost(window.location.hostname)
+    !isLocalHost(window.location.hostname) &&
+    process.env.NODE_ENV === 'production'
   ) {
     window.location.href = window.location.href.replace(/^http(?!s)/, 'https');
     return null;
