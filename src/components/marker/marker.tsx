@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Cancel from '@material-ui/icons/Cancel';
 import IconButton from '@material-ui/core/IconButton';
 import cn from 'classnames';
-import { SvgIconTypeMap } from '@material-ui/core';
-import { OverridableComponent } from '@material-ui/core/OverridableComponent';
+// import { SvgIconTypeMap } from '@material-ui/core';
+// import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 
 import logo from '../../assets/jj-logo.png';
 import styles from './marker.module.css';

@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
           <div className={styles.icon}>
             <ArrowForwardIosIcon />
           </div>
-          <a href="https://storyset.com/work" target="_blank" rel="noreferrer">
+          <a href="https://storyset.com/work" target="_blank" rel="noreferrer" className={styles.text}>
             Illustraciones por Freepik Storyset
           </a>
         </div>

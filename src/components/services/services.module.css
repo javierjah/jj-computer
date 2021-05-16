@@ -1,0 +1,167 @@
+.containerServices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 30px;
+  background-color: var(--secondary-color);
+}
+.title {
+  margin-bottom: 20px;
+}
+.wrapperServices {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--white);
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+.nameLarge {
+  display: none;
+}
+.image {
+  width: 100%;
+  height: auto;
+}
+.pcImage {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 250px;
+}
+.wrappText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.descriptionText {
+  text-align: center;
+  font-size: 16px;
+}
+.actionButton {
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .containerServices {
+    padding: 50px;
+  }
+  .name {
+    display: none;
+  }
+  .nameLarge {
+    display: block;
+    margin-bottom: 10px;
+  }
+  .service {
+    flex-direction: row;
+    padding: 20px 60px;
+    margin-bottom: 20px;
+  }
+  .containerImage {
+    width: 40%;
+  }
+  .image {
+    width: 100%;
+  }
+  .pcImage {
+    width: 90%;
+  }
+  .wrappText {
+    align-items: flex-start;
+    width: 60%;
+  }
+  .descriptionText {
+    text-align: start;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .containerServices {
+    padding: 50px 90px;
+  }
+  .wrappText {
+    align-items: flex-start;
+    width: 50%;
+  }
+  .image {
+    margin-right: 20px;
+  }
+  .pcImage {
+    margin-right: 20px;
+  }
+  .service {
+    justify-content: space-between;
+    padding: 20px 80px;
+  }
+  .pcService {
+    padding: 40px 80px;
+  }
+  .nameLarge {
+    font-size: 24px;
+  }
+  .descriptionText {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .containerServices {
+    padding: 50px 90px;
+  }
+  .name {
+    display: block;
+    font-size: 24px;
+  }
+  .nameLarge {
+    display: none;
+  }
+  .wrapperServices {
+    flex-direction: row;
+  }
+  .service {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 300px;
+    height: 500px;
+    justify-content: initial;
+    margin: 0px 10px;
+  }
+  .containerImage {
+    width: 80%;
+    min-height: 230px;
+    display: flex;
+    justify-content: center;
+  }
+  .image {
+    width: 100%;
+  }
+  .pcImage {
+    width: 90%;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+  }
+  .wrappText {
+    width: 100%;
+    align-items: center;
+  }
+  .descriptionText {
+    text-align: center;
+    min-height: 170px;
+  }
+  .actionButton {
+    margin-top: 20px;
+  }
+}

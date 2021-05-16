@@ -6,8 +6,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
-  background-color: var(--primary-color);
+  padding: 30px;
+  background-color: #191919;
   box-shadow: 0px -13px 35px -5px rgba(0, 0, 0, 0.1);
 }
 .containerServices {
@@ -30,7 +30,6 @@
   padding-bottom: 10px;
 }
 .icon :global(.MuiSvgIcon-root) {
-  /* font-size: 12px; */
   margin-right: 5px;
 }
 .containerText {
@@ -40,6 +39,7 @@
 }
 .text {
   padding: 5px;
+  color: var(--white);
 }
 .icon .arrowIcon {
   font-size: 12px;
@@ -47,6 +47,11 @@
 @media screen and (min-width: 768px) {
   .containerFooter {
     flex-direction: unset;
+    padding: 50px;
+  }
+  .logo {
+    width: 230px;
+    height: auto;
   }
   .data {
     align-self: start;
@@ -68,16 +73,29 @@
     display: flex;
     flex-direction: unset;
     place-content: space-between;
-    padding: 50px 50px;
+    padding: 50px 90px;
   }
+
   .containerServices {
     padding-left: 50px;
+    width: 400px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .data {
+    width: 500px;
+  }
+  .containerLogo {
+    width: 500px;
   }
 }
 @media screen and (min-width: 1440px) {
-  .containerServices {
-    width: 650px;
-    padding-left: 180px;
-    padding-right: 100px;
+  .containerFooter {
+    padding: 90px 200px;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .containerFooter {
+    padding: 90px 400px;
   }
 }

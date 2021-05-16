@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { ReactComponent as ItSupport } from '../../assets/it_support.svg';
 import ActionButton from '../action-button';
 import styles from './main-banner.module.css';
 
@@ -14,12 +13,10 @@ const PresenceInfo: React.FC = () => {
             Diagnóstico, Mantención y Reparación de Computadores, Notebooks e Impresoras.
           </h2>
         </div>
+
         <div>
           <ActionButton className={styles.actionButton} />
         </div>
-      </div>
-      <div className={styles.imgBox}>
-        <ItSupport className={styles.mainIcon} />
       </div>
     </div>
   );

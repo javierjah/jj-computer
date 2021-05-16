@@ -30,3 +30,14 @@ a {
   color: var(--link-color);
   text-decoration: none;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 0;
+}
