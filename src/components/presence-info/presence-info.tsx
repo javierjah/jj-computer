@@ -10,15 +10,15 @@ const PresenceInfo: React.FC = () => {
     <div className={styles.presenceRow}>
       <img src={logo} alt="BJ logo white" className={styles.logo} />
       <div className={styles.infoBox}>
-        <h1 className={cn(styles.titleText)}>Servicio técnico certificado hace mas de 30 años en Melipilla.</h1>
-        <h3 className={cn(styles.titleText, styles.secondTitle)}>
+        <p className={cn(styles.text)}>Servicio técnico certificado hace mas de 30 años en Melipilla.</p>
+        <p className={cn(styles.text)}>
           Venta de computadores e impresoras de tinta y láser, nuevos y usados con garantía.
-        </h3>
-        <h3 className={cn(styles.titleText)}>Especialistas en suministros de computación.</h3>
-        <h3 className={cn(styles.titleText, styles.lastTitle)}>
+        </p>
+        <p className={cn(styles.text)}>Especialistas en suministros de computación.</p>
+        <p className={cn(styles.text, styles.boldText)}>
           Toner para impresoras, memorias, discos duros normales y sólidos, baterías, teclados, kit de limpieza,
           cargadores, y muchos más.
-        </h3>
+        </p>
         <ActionButton className={styles.actionButton} />
       </div>
     </div>

@@ -5,13 +5,13 @@
   justify-content: space-around;
   width: 100%;
   height: auto;
-  min-height: 280px;
   box-sizing: border-box;
-  padding: 0 30px;
-  background-image: url('../../assets/bg.png');
-  background-position: 0 0;
-  background-size: 50%;
   padding: 30px;
+}
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 .infoBox {
@@ -20,59 +20,39 @@
   align-items: center;
   margin-bottom: 20px;
 }
-
-.titleText {
+.text {
   margin-bottom: 0;
   margin-top: 10px;
   max-width: 940px;
   text-align: center;
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.firstTitle {
-  margin-top: 20px;
-}
-
-.secondTitle {
+  font-size: 16px;
   margin-bottom: 20px;
 }
-.lastTitle {
-  margin-bottom: 20px;
+.boldText {
   font-weight: 700;
 }
 
-.servicesIcons {
-  display: flex;
-  width: 50%;
-  max-width: 50%;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
-}
-
-.serviceIcon {
-  width: 60%;
-  height: 100px;
-}
-.logo {
-  width: 260px;
-  height: 180px;
-  margin-bottom: 50px;
-}
-
 @media only screen and (min-width: 768px) {
-  .servicesIcons {
-    flex-direction: row;
+  .presenceRow {
+    padding: 50px;
   }
-
-  .titleText {
-    font-size: 27px;
+  .logo {
+    width: 260px;
+    height: 180px;
+  }
+  .text {
+    font-size: 20px;
   }
   .actionButton {
     width: 200px;
     min-width: 200px;
     min-height: 50px;
     font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .presenceRow {
+    padding: 50px 90px;
   }
 }
